@@ -1,0 +1,4 @@
+The quick brown Fox jumps over the Lazy Dog
+Sockets make computers talk across the world
+Python CODE can be simple yet powerful
+Network programming opens many new doors
