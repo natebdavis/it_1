@@ -16,7 +16,8 @@ while True:
     data = conn.recv(1024)
     if not data:
         break
-    # TODO: echo it back with conn.sendall()
+    # echo it back with conn.sendall()
+    conn.sendall(data)
 
 conn.close()
 s.close()
