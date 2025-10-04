@@ -11,9 +11,10 @@ while True:
     line = input("Enter a line (or QUIT): ")
     if line == "QUIT":
         break
-    # TODO: send line (+ newline) to server
-    # TODO: receive reply from server
-    reply = "???"  # placeholder until implemented
+    # send line (+ newline) to server
+    c.sendall(f'{line}\n'.encode())
+    # receive reply from server
+    reply = c.recv(100).decode()
     print(f"sent={line} recv={reply}")
 
 c.close()

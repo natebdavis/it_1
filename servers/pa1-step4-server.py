@@ -4,8 +4,8 @@ import socket
 PORT = 50007
 
 def transform(s: str) -> str:
-    # TODO: reverse string and swap case
-    return "???"
+    # reverse string and swap case
+    return s[::-1].swapcase()
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -25,7 +25,8 @@ while True:
     text = data.decode().strip()  # incoming line (newline removed)
     reply = transform(text)
     out.write(reply + "\n")
-    # TODO: send reply back to client (with newline)
+    # send reply back to client (with newline)
+    conn.sendall(f'{text}\n'.encode())
 
 out.close()
 conn.close()
