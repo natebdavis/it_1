@@ -26,7 +26,7 @@ while True:
     reply = transform(text)
     out.write(reply + "\n")
     # send reply back to client (with newline)
-    conn.sendall(f'{text}\n'.encode())
+    conn.sendall(f'{reply}\n'.encode())
 
 out.close()
 conn.close()

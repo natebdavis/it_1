@@ -10,9 +10,11 @@ c.connect((HOST, PORT))
 with open("in-proj.txt") as f:
     for line in f:
         msg = line.strip()  # keep as-is per assignment handout
-        # TODO: send msg (+ "\n") to the server
-        # TODO: receive the transformed reply from the server
+        # send msg (+ "\n") to the server
+        c.sendall(f'{msg}\n'.encode())
+        # receive the transformed reply from the server
         # decode it back to string
+        reply = c.recv(100).decode()
         print(f"sent={msg} recv={reply}")
 
 c.close()
